@@ -1,0 +1,74 @@
+Package Report
+
+-----------------------------------------------------------------------------
+Document:
+Name: hopr-nft-tokenlon-ama.ai
+Color Mode: RGB color
+Color Profile: sRGB IEC61966-2.1
+Ruler Units: pixels
+Artboard Dimensions: 1597 px x 2263 px
+Show Images in Outline Mode: OFF
+Highlight Substituted Fonts: OFF
+Highlight Substituted Glyphs: OFF
+Preserve Text Editability
+Simulate Colored Paper: OFF
+
+-----------------------------------------------------------------------------
+Spot Color Objects:
+
+-----------------------------------------------------------------------------
+Missing Fonts:NONE
+
+-----------------------------------------------------------------------------
+Protected Fonts that were not packaged:
+Source Code Pro Bold (Adobe Fonts)
+
+-----------------------------------------------------------------------------
+Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Embedded Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Missing Links:
+NONE
+
+-----------------------------------------------------------------------------
+Linked Images:
+
+/Users/meredithbachmanhankins/Desktop/TokenLon@2x.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 70312K, 4000 by 6000 pixels
+Dimensions: 1614.468 by 2421.702 points 
+Resolution: 178.387 by 178.387 pixels per inch
+
+
+/Users/meredithbachmanhankins/Desktop/TokenLon@2x.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 70312K, 4000 by 6000 pixels
+Dimensions: 1614.468 by 2421.702 points 
+Resolution: 178.387 by 178.387 pixels per inch
+
+
+/Users/meredithbachmanhankins/Desktop/TokenLon@2x.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 70312K, 4000 by 6000 pixels
+Dimensions: 1614.468 by 2421.702 points 
+Resolution: 178.387 by 178.387 pixels per inch
+
+
+/Users/meredithbachmanhankins/Desktop/TokenLon@2x.jpg
+Type: RGB
+Bits per Pixel: 24
+Channels: 3
+Size: 70312K, 4000 by 6000 pixels
+Dimensions: 1614.468 by 2421.702 points 
+Resolution: 178.387 by 178.387 pixels per inch
