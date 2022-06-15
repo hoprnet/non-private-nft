@@ -2,19 +2,12 @@ const mysql = require('serverless-mysql');
 const escape = require('sql-template-strings')
 
 
-// CREATE TABLE users (
-//     UserID int NOT NULL AUTO_INCREMENT UNIQUE,
-//     Email varchar(150) NOT NULL,
-//     Username varchar(150),
-//     Name varchar(256),
-//     ProviderID int NOT NULL,
-//     EmailApproval BOOLEAN,
-//     Activated BOOLEAN,
-//     created_at varchar(32),
-//     PRIMARY KEY (UserID),
-//     FOREIGN KEY (ProviderID) REFERENCES login_providers(ProviderID)
+// CREATE TABLE ips (
+//     ip varchar(150) NOT NULL UNIQUE,
+//     country varchar(10),
+//     count int,
+//     PRIMARY KEY (ip)
 // );
-// ALTER TABLE `users` ADD UNIQUE `unique_index`(`Email`, `ProviderID`);
 
 
 const db = mysql({
@@ -26,51 +19,25 @@ const db = mysql({
   }
 })
 
-queryDB = async (query) => {
+const queryDB = async (query) => {
   let results = await db.query(query);
   await db.end();
   return results
 }
 
-export async function createUser (payload) {
-    console.log('MySQL: createUser');
-    let query = await queryDB(escape`
-    INSERT INTO users 
-    (Email,ProviderID,EmailApproval,Activated,Username,Name,created_at) 
-    VALUES (
-      ${payload.email},
-      (SELECT ProviderID FROM login_providers WHERE ProviderName = ${payload.provider}),
-      1,
-      ${payload.activated},
-      ${payload.username},
-      ${payload.name},
-      ${Date.now()}
-    )
-    ON DUPLICATE KEY UPDATE UserID=UserID;
+export async function insertIp (ip, country) {
+    console.log('MySQL: insertIp', ip);
+    await queryDB(escape`
+      INSERT INTO ips (ip, country, count) VALUES (${ip},${country},1)
+      ON DUPLICATE KEY UPDATE count = count + 1;
     `)
-    let insertId = false;
-    if(query.insertId !== 0) insertId = query.insertId;  //if insertId is present, that means that user was created
-    if (query.error) {
-      return {status: 400}
-    }
-    return {status: 200, insertId}
 }
 
-export async function getUserID (payload) {
-    console.log('MySQL: getUserID');
+export async function getTop10Ips () {
+    console.log('MySQL: getTop10IPs');
     let query = await queryDB(escape`
-      SELECT
-        UserID
-      FROM
-        users
-      WHERE   
-        Email = ${payload.email}
-          AND
-        ProviderID = (SELECT ProviderID FROM login_providers WHERE ProviderName = ${payload.provider});
+      SELECT * FROM ips ORDER BY count DESC LIMIT 10;
     `);
-    console.log(query)
-    if (query.length > 0 && query[0].UserID){
-      query = query[0].UserID
-    } else query = null
+  //  console.log('query', query)
     return query
 }

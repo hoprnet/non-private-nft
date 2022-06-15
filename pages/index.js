@@ -17,8 +17,8 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/api/nft" alt="Vercel Logo" />
         <img src="/api/nft.svg" alt="Vercel Logo" /> */}
-        <img src="/api/nft.svg.jpg" alt="Vercel Logo" />
-        <SVG src={`/api/nft.svg`} width="320" height="453" />
+        <img src="/api/nft.jpg" alt="Non Private NFT by HOPR" />
+        {/* <SVG src={`/api/nft.svg`} width="320" height="453" /> */}
       </main>
       
       {/* <footer className={styles.footer}>
