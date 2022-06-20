@@ -17,6 +17,7 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
 
 
     const yourFlag = flags[requesterCountry];
+  //  const yourFlag = flags['pl'];
 
     // All IPs
     let svgTopIPs = '';
@@ -84,8 +85,6 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
         svgYourIP = svgYourIP + `<text x="${x}" y="${1785-30}" class="ipv6">${yourIp.substr(0,20)}</text>
         <text x="${x}" y="${1785+20}" class="ipv6">${yourIp.substr(20)}</text>`
     }
-
-
 
     const hoprLogo = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
             viewBox="0 0 249.3 113.4" style="enable-background:new 0 0 249.3 113.4;" xml:space="preserve"
@@ -180,7 +179,7 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
         </g>
         <g>
             ${svgTopIPsFlags}
-            ${yourFlag ? `<image href="${yourFlag}" x="1130" y="1663" width="96" height="96" />` : '' }
+            ${yourFlag ? `<image href="${yourFlag}" x="1055" y="1703" width="96" height="96" />` : '' }
         </g>
         <g>
             ${svgTopIPsCount}
