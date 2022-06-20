@@ -6,7 +6,6 @@ import { getTop10Ips } from "../../components/mysql"
 export default async function(req, res) {
 
   var detectedIp = requestIp.getClientIp(req)
-  if(detectedIp === "::1") detectedIp = '79.184.238.42'// '2a01:110f:4407:a200:6017:ea42:fa3b:e9bf'
   const geo = geoip.lookup(detectedIp);
   var country = geo?.country.toLowerCase(); 
   const topIPs = await getTop10Ips();

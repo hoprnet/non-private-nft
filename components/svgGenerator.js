@@ -1,15 +1,18 @@
-import { base64 } from '../images_folder/hopr-nft-tokenlon-ama-gold@0.5x-base64'
+// import { base64 } from '../images_folder/hopr-nft-tokenlon-ama-gold@0.5x-base64'
+//import { base64 } from '../images_folder/Non-private-NFT-40'
+// import { base64 } from '../images_folder/Non-private-NFT-75'
+import { base64 } from '../images_folder/Non-private-NFT-100'
 import { flags } from '../images_folder/flags-128x128'
 
 export default function svgGenerator(requesterIp, requesterCountry, topIPs){
 
     // Your IP
     let yourIp = '';
-    if(requesterIp === "::1"){
-        yourIp = 'local';
-    } else {
+ //   if(requesterIp === "::1"){
+ //       yourIp = 'local';
+ //   } else {
         yourIp = requesterIp;
-    }
+ //   }
 
     const yourFlag = flags[requesterCountry];
 
