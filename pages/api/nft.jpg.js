@@ -10,7 +10,7 @@ import requestIp from 'request-ip'
 const sharp = require('sharp');
 
 export default async function(req, res) {
-
+  let start = Date.now();
   var detectedIp = requestIp.getClientIp(req)
   const geo = geoip.lookup(detectedIp);
   var country = geo?.country.toLowerCase(); 
@@ -23,11 +23,14 @@ export default async function(req, res) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "image/jpg");
   const jpeg = {
-    mozjpeg: true,
-    quality: 90,
+    mozjpeg: false, //true: 1400ms false: 536.8ms
+    quality: 80, //90: 827.6ms 70: 600ms 50: 521ms // 100:445.6 80:406.4
+    optimiseCoding: false, //true: 536.8ms false: 411ms
   }
-  const output = await sharp(buffer).jpeg(jpeg).toBuffer();
+  const output = await sharp(buffer).resize({ width: 1000 }).jpeg(jpeg).toBuffer();
   
+
+  console.log(Date.now()-start);
   return res.end(output);
 
 }
