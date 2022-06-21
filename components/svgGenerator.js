@@ -158,7 +158,8 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
             }
             .count-container {
               /*   fill: rgba(0,0,0,0.4); */
-              fill: rgb(153,153,96);
+              fill: rgba(107,122,134);
+              /*  fill: rgb(153,153,96); */
             }
             .count {
                 font-family: "Source Code Pro";
@@ -168,8 +169,7 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
             }
         </style>
         <image href="data:image/jpeg;charset=utf-8;base64,${base64}"  x="0" y="0" width="1601" height="2264" />
-        <rect x="250" y="410" width="1100" height="1440" fill="rgb(255,255,160)"></rect>
-        <polygon points="250,340 540,340 660,465 250,465" style="fill:rgb(255,255,160)" />
+        <polygon points="250,340 540,340 605,410 1350,410 1350,1850 250,1850 250,465" style="fill:rgba(255,255,255,0.5)" />
         ${hoprLogo}
         <g>
             <text x="${x}" y="535" class="title">Top IPs loading this NFT:</text>
@@ -184,6 +184,7 @@ export default function svgGenerator(requesterIp, requesterCountry, topIPs){
         <g>
             ${svgTopIPsCount}
         </g>
+        <circle cx="400" cy="1075" r="510" fill="rgb(255,255,160)"></circle>
         </svg>`;
 
 
