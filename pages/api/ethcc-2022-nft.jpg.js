@@ -19,6 +19,7 @@ export default async function(req, res) {
   } else if(!/^\d+$/.test(id)) {
     return res.status(404).end();
   }
+  console.log(req)
 
   var detectedIp = requestIp.getClientIp(req);
   id = parseInt(id);
@@ -35,8 +36,6 @@ export default async function(req, res) {
   const geo = geoip.lookup(detectedIp);
   var ua = uaparser(req.headers['user-agent']);
   const lang = new Negotiator(req).language();
-
-
 
 
   // ua = {

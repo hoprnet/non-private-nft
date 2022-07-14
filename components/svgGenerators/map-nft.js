@@ -33,7 +33,9 @@ function cropMap(country, offsetY){
 }
 
 function deviceString(device, ua, cpu_arch){
-    let string = `${device ?`${device}, ` : ''}${ua.os.name + ' ' + ua.os.version}${cpu_arch ?`, ${cpu_arch}` : ''}`;
+    let os = ua.os.name + ' ' + ua.os.version;
+    if (os === 'Windows 10') os = 'Windows 10 or later'
+    let string = `${device ?`${device}, ` : ''}${os}${cpu_arch ?`, ${cpu_arch}` : ''}`;
     string = string.substr(0,34);
     return string;
 }
@@ -93,14 +95,14 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
             .nft-title { 
                 font-family: "Segoe UI";
                 font-family: "Source Code Pro";
-                font-weight: 700;
+                font-weight: bold;
                 font-size: 58px; 
                 fill: rgb(33,38,44);
             }
             .title { 
                 font-family: "Segoe UI";
                 font-family: "Source Code Pro";
-                font-weight: 700;
+                font-weight: bold;
                 font-size: 58px; 
                 fill: black 
             }
@@ -132,7 +134,7 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
             }
             .count {
                 font-family: "Source Code Pro";
-                font-weight: 600;
+                font-weight: bolder;
                 font-size: 36px; 
                 fill: black 
             }
