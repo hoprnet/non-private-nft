@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import getSvg from "../components/svgGenerator";
+// import getSvg from "../components/svgGenerator/scoreboard";
+import World from '../assets/maps/world-HighRez-Mercator.svg'
+//import World from '../assets/maps/worldHigh-Mercator.svg'
 
 import SVG, { Props as SVGProps } from 'react-inlinesvg';
 
@@ -17,13 +19,17 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/api/nft" alt="Non Private NFT by HOPR" />
         <img src="/api/nft.svg" alt="Non Private NFT by HOPR" /> */}
-        <img src="/api/nft.jpg" alt="Non Private NFT by HOPR" />
-        {/* <SVG src={`/api/nft.svg`} width="600" height="703" /> */}
+        <div>
+         <img src="/api/nft.jpg" alt="Non Private NFT by HOPR" />
+        </div>
+        {/* <SVG src={`/api/nft.svg`}  /> */}
+        {/* <SVG src={`/api/nft.svg`} width="353" height="503" /> */}
+        
+        {/* <SVG src={`/ethcc-2022-nft-1234.svg`} width="585" height="803" /> */}
+        <div>
+          <img src="/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
+        </div>
       </main>
-      
-      {/* <footer className={styles.footer}>
-
-      </footer> */}
     </div>
   )
 }

@@ -1,9 +1,9 @@
-// import { base64 } from '../images_folder/hopr-nft-tokenlon-ama-gold@0.5x-base64'
-//import { base64 } from '../images_folder/Non-private-NFT-40'
-// import { base64 } from '../images_folder/Non-private-NFT-75'
-import { base64 } from '../images_folder/Non-private-NFT-100'
-import { base64 as hoprLogoBase64 } from '../images_folder/hopr-logo'
-import { flags } from '../images_folder/flags-128x128'
+// import { base64 } from ''../../assets/images/hopr-nft-tokenlon-ama-gold@0.5x-base64'
+//import { base64 } from ''../../assets/images/Non-private-NFT-40'
+// import { base64 } from ''../../assets/images/Non-private-NFT-75'
+import { base64 } from '../../assets/images/Non-private-NFT-100'
+import { base64 as hoprLogoBase64 } from '../../assets/images/hopr-logo-base64'
+import { flags } from '../../assets/images/flags-128x128'
 
 export default function svgGenerator(requesterIp, requesterCountry, topIPs){
 

@@ -1,5 +1,5 @@
 // pages/api/index.ts
-import getSvg from "../../components/svgGenerator";
+import getSvg from "../../components/svgGenerator/scoreboard";
 
 export default async function handler(
   req,

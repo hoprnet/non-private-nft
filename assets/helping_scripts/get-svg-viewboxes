@@ -1,0 +1,50 @@
+// Whole map
+const svg = document.querySelector('svg');
+
+const { xMin, xMax, yMin, yMax } = [...svg.children].reduce((acc, el) => {
+  const { x, y, width, height } = el.getBBox();
+  if (!acc.xMin || x < acc.xMin) acc.xMin = x;
+  if (!acc.xMax || x + width > acc.xMax) acc.xMax = x + width;
+  if (!acc.yMin || y < acc.yMin) acc.yMin = y;
+  if (!acc.yMax || y + height > acc.yMax) acc.yMax = y + height;
+  return acc;
+}, {});
+
+const viewbox = `${xMin} ${yMin} ${xMax - xMin} ${yMax - yMin}`;
+
+svg.setAttribute('viewBox', viewbox);
+
+
+
+// Per country
+var allElements = document.getElementsByTagName("*");
+var allIds = [];
+for (var i = 0, n = allElements.length; i < n; ++i) {
+  var el = allElements[i];
+  if (el.id) { allIds.push(el.id); }
+}
+
+let viewBoxes = {}
+allIds.map(
+    country => {
+        let svg = document.getElementById(country);
+        const { x, y, width, height } = svg.getBBox();
+        const viewBox = `${x} ${y} ${width} ${height}`;
+        let difference = Math.abs(width - height);
+
+
+        let x2 = Math.floor(x);
+        let y2 = Math.floor(y);
+        let width2 = Math.ceil(width);
+        let height2 = Math.ceil(height);
+        let difference2 = Math.abs(width2 - height2);
+
+
+
+        viewBoxes[country] = {viewBox, x, y, width, height};
+    }
+)
+
+
+
+

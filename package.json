@@ -1,6 +1,6 @@
 {
   "name": "non-private-nft",
-  "version": "0.5.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,7 @@
   "dependencies": {
     "geoip-lite": "^1.4.5",
     "image-to-base64": "^2.2.0",
+    "negotiator": "^0.6.3",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -18,7 +19,8 @@
     "request-ip": "^2.2.0",
     "serverless-mysql": "^1.5.4",
     "sharp": "^0.30.6",
-    "sql-template-strings": "^2.2.2"
+    "sql-template-strings": "^2.2.2",
+    "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "8.17.0",

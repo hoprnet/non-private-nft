@@ -1,6 +1,6 @@
 import path from 'path'
-import getSvg from "../../components/svgGenerator";
-import { insertIp, getTop10Ips } from "../../components/mysql"
+import getSvg from "../../components/svgGenerators/scoreboard-nft";
+import { insertIpToScoreboard, getTop10Ips } from "../../components/mysql";
 
 path.resolve(process.cwd(), 'fonts', 'fonts.conf');
 path.resolve(process.cwd(), 'fonts', 'SourceCodePro-Regular.ttf');
@@ -15,7 +15,7 @@ export default async function(req, res) {
   const geo = geoip.lookup(detectedIp);
   var country = geo?.country.toLowerCase(); 
 
-  insertIp(detectedIp, country);
+  insertIpToScoreboard(detectedIp, country);
   const topIPs = await getTop10Ips();
 
   const buffer = Buffer.from(getSvg(detectedIp, country, topIPs));
