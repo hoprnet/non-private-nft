@@ -2,6 +2,7 @@ import { base64 } from '../../assets/images/Non-private-NFT-100';
 import { flags } from '../../assets/images/flags-128x128';
 import { hoprLogo } from '../../assets/images/hopr-logo-svg-string';
 import { worldMap } from '../../assets/maps/world-HighRez-Mercator-svg-string.js';
+import { mapPin } from '../../assets/images/Google_Maps_Pin';
 import worldViewBoxes from '../../assets/precalculated/world-HighRez-Mercator-viewboxes.json'
 import languages from '../../assets/precalculated/languages.json'
 
@@ -54,6 +55,139 @@ function stringifyCounter(id) {
     return '10k+';
 }
 
+function degrees_to_radians(degrees) {
+  return degrees * (Math.PI/180);
+}
+
+function pin(ll, country) {
+    const latitude = ll[0];  //svg y
+    const longitude = ll[1]; //svg x
+
+
+    const svgHeight = 580;
+    const svgWidth = 580;
+
+    const xCoef = 2.805341798;
+    const xMin = 1.15;
+    const xMax = 1010.26898193359;
+    const longMin = -169.116597;
+    const longMax = 179.632529;
+
+    var x, y;
+
+    //counting x on map
+    x = (-longMin + longitude) * xCoef + xMin;
+    if (x < 0) x = x + xMax;
+
+    //counting y on map
+
+    function degreesToSVG( degrees ) {
+        return convertRange(
+            GudermannianInv(degrees), 
+            [Math.PI, - Math.PI], 
+            [-20.7, 925.40] // y: 0 and y: max on svg
+        );
+    }
+
+    function convertRange( value, r1, r2 ) {
+        return ( value - r1[0] )
+             * ( r2[1] - r2[0] )
+             / ( r1[1] - r1[0] )
+             +   r2[0];
+    }
+
+    function Gudermannian(y) {
+        return Math.atan(Math.sinh(y)) * (180 / Math.PI)
+    }
+    
+    function GudermannianInv(latitude)
+    {
+        var sign = Math.sign(latitude);
+        var sin  = Math.sin(
+                              latitude 
+                            * (Math.PI / 180) 
+                            * sign
+        );
+        return sign * (
+            Math.log(
+                (1 + sin) / (1 - sin)
+            ) / 2
+        );
+    }
+
+    y = degreesToSVG(latitude)
+
+    console.log ('x', x)
+    console.log ('y', y)
+
+    if (!country) return '';
+    country = country.toUpperCase();
+    let viewBox = worldViewBoxes[country];
+
+    let biggerNumber = Math.max(viewBox.width, viewBox.height);
+    let widthIsBigger = viewBox.width > viewBox.height;
+
+    let offet = biggerNumber * 0.1;
+    let x2, y2, width2, height2;
+    if(widthIsBigger){
+        x2 = viewBox.x - offet;
+        width2 = biggerNumber + 2 * offet;
+        y2 = viewBox.y - ((width2 - viewBox.height)/2);
+        height2 = width2;
+    } else {
+        y2 = viewBox.y - offet;
+        height2 = biggerNumber + 2 * offet;
+        x2 = viewBox.x - ((height2 - viewBox.width)/2);
+        width2 = height2;
+    }
+
+
+    console.log({
+        x2,
+        y2,
+        x2max: x2+width2,
+        y2max: y2+width2,
+        width2,
+        height2
+    })
+
+
+    const step = svgHeight / width2;
+    x = x - x2;
+    x = x * step;
+
+    y = y - y2;
+    y = y * step;
+
+
+    console.log ('x', x)
+    console.log ('y', y)
+
+
+
+
+    // x = 512.5513305664062
+    // y = 275.1697998046875
+
+    // x = y = 0;
+
+    // x2: 512.5513305664062,
+    // y2: 275.1697998046875,
+    // x2max: 546.1519165039062,
+    // y2max: 308.7703857421875,
+    // width2: 33.6005859375,
+    // height2: 33.6005859375
+
+    // Place pins  on the spot
+    // x = x + 730;
+    // y = y + 545;
+
+    // Place pins pointy end on the spot
+    x = x + 681;
+    y = y + 392;
+    return mapPin(x,y);
+}
+
 export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
 
     const requesterCountry = geo?.country;
@@ -88,6 +222,7 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
     }
 
 
+//        ${geo.ll && pin(geo.ll, requesterCountry)}
 
 
     const svg = `<svg width="1601" height="2264" viewBox="0 0 1601 2264" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -82,7 +82,6 @@ export async function insertIpToEthCCParis2022AndGetCount (nftId, ip) {
   let getCount = escape`
     SELECT COUNT(nftId) as count FROM ethcc_paris_2022 WHERE nftId = ${nftId};
   `
-  console.log('insert', insert)
   let query = await queryDBTransaction(insert, getCount);
   let count = query[1][0].count;
   return count;

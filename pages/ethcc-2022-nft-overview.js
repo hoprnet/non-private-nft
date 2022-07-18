@@ -16,16 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        {/* <img src="/api/nft" alt="Non Private NFT by HOPR" />
-        <img src="/api/nft.svg" alt="Non Private NFT by HOPR" /> */}
-        <div>
-         <img src="/api/nft.jpg" alt="Non Private NFT by HOPR" />
-        </div>
-        {/* <SVG src={`/api/nft.svg`}  /> */}
-        {/* <SVG src={`/api/nft.svg`} width="353" height="503" /> */}
-        
-        {/* <div><SVG src={`/ethcc-2022-nft-demo.svg`} width="585" height="803" /></div> */}
+      <h2 className={styles.h2}>NFT might be watching you!</h2>
+      <p className={styles.p}>
+      The HOPR Non-Private NFT! This NFT tool will show you how easy it is to expose your IP address and maybe even your whole identity with many of today`s crypto services.
+      </p>
+      <main className={styles.overview}>
         <div>
           <img src="/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
         </div>
