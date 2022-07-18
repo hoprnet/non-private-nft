@@ -228,12 +228,12 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
     const svg = `<svg width="1601" height="2264" viewBox="0 0 1601 2264" fill="none" xmlns="http://www.w3.org/2000/svg">
         <style>
             .nft-title { 
-                font-family: "Source Code Pro Bold";
+                font-family: "Source Code Pro";
                 font-size: 58px; 
                 fill: rgb(33,38,44);
             }
             .title { 
-                font-family: "Source Code Pro Bold";
+                font-family: "Source Code Pro";
                 font-size: 58px; 
                 fill: black 
             }
@@ -261,16 +261,8 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
               /*  fill: rgb(153,153,96); */
               fill: rgb(255, 255, 160);
             }
-            @font-face {
-                font-family: "SourceCodePro-SemiBold";
-                src: './fonts/SourceCodePro-SemiBold.ttf'';
-            }
-            @font-face {
-                font-family: "Source Code Pro";
-                src: './fonts/SourceCodePro-SemiBold.ttf'';
-            }
             .count {
-                font-family: "SourceCodePro-SemiBold";
+                font-family: "Source Code Pro";
                 font-size: 36px; 
                 fill: black 
             }
@@ -281,8 +273,8 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
             <rect x="46" y="95" width="483" height="120" style="fill: rgb(255, 255, 160)"></rect>
             <rect x="540" y="95" width="100" height="10" style="fill: rgb(255, 255, 160)"></rect>
             <polygon points="540,115 640,115 540,215" style="fill: rgb(255, 255, 160)"></polygon>
-            <text class="nft-title" x="70" y="147">EthCC 5</text>
-            <text class="nft-title" x="70" y="202">2022 Paris</text>
+            <text class="nft-title" x="70" y="147" font-weight="700" >EthCC 5</text>
+            <text class="nft-title" x="70" y="202" font-weight="700" >2022 Paris</text>
         </g>
 
         <polygon points="250,${folderOffsetY} 540,${folderOffsetY} 605,${folderOffsetY+70} 1350,${folderOffsetY+70} 1350,${folderOffsetY+1440} 250,${folderOffsetY+1440} 250,${folderOffsetY+125}" style="fill:rgba(255,255,255,0.5)" />
@@ -290,46 +282,46 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
         ${cropMap(requesterCountry, folderOffsetY)}
 
         <g>
-            <text class="title" x="295" y="${folderOffsetY+210}">Country:</text>
+            <text class="title" x="295" y="${folderOffsetY+210}" font-weight="700">Country:</text>
             <text class="date" x="405" y="${folderOffsetY+280}">${requesterCountry}</text>
             ${yourFlag ? `<image href="${yourFlag}" x="295" y="${folderOffsetY+219}" width="96" height="96" />` : '' }
         </g>
         
         <g>
-            <text class="title" x="295" y="${folderOffsetY+390}">City:</text>
+            <text class="title" x="295" y="${folderOffsetY+390}" font-weight="700">City:</text>
             <text class="date" x="295" y="${folderOffsetY+460}">${city ? city.substr(0,14) : '-'}</text>
         </g>
 
         <g>
-            <text class="title" x="295" y="${folderOffsetY+570}">Coordinates:</text>
+            <text class="title" x="295" y="${folderOffsetY+570}" font-weight="700">Coordinates:</text>
             <text class="date" x="295" y="${folderOffsetY+640}">${geo.ll[0]}</text>
             <text class="date" x="295" y="${folderOffsetY+710}">${geo.ll[1]}</text>
         </g>
 
         <g>
-            <text class="title" x="295" y="${folderOffsetY+800}">Preferred language:</text>
+            <text class="title" x="295" y="${folderOffsetY+800}" font-weight="700">Preferred language:</text>
             <text class="date" x="295" y="${folderOffsetY+870}">${language}</text>
         </g>
 
         <g>
-            <text x="${x}" y="${folderOffsetY+960}" class="title">Browser:</text>
+            <text x="${x}" y="${folderOffsetY+960}" class="title" font-weight="700">Browser:</text>
             <text x="${x}" y="${folderOffsetY+1030}" class="date">${browser.substr(0,34)}</text>
         </g>
 
         <g>
-            <text x="${x}" y="${folderOffsetY+1120}" class="title">${device ? 'Device and OS:' : 'OS and Device:'}</text>
+            <text x="${x}" y="${folderOffsetY+1120}" class="title" font-weight="700">${device ? 'Device and OS:' : 'OS and Device:'}</text>
             <text x="${x}" y="${folderOffsetY+1190}" class="date">${deviceString(device, ua, cpu_arch)}</text>
         </g>
 
         <g>
-            <text x="${x}" y="${folderOffsetY+1280}" class="title">Your IP:</text>
+            <text x="${x}" y="${folderOffsetY+1280}" class="title" font-weight="700">Your IP:</text>
             ${svgYourIP}
         </g>
 
         <g>
-            <text x="40" y="59" class="count">id:${stringifyId(id)}</text>
+            <text x="40" y="59" class="count" font-weight="600" >id:${stringifyId(id)}</text>
             <polygon points="1285,2235 1335,2185 1580,2185 1580,2235" style="fill: rgb(255, 255, 160)"></polygon>
-            <text x="1330" y="2222" class="count">visits:${stringifyCounter(count)}</text>
+            <text x="1330" y="2222" class="count" font-weight="600" >visits:${stringifyCounter(count)}</text>
         </g>
        
         </svg>`;
