@@ -19,7 +19,6 @@ export default async function(req, res) {
   } else if(!/^\d+$/.test(id)) {
     return res.status(404).end();
   }
-  console.log(req)
 
   var detectedIp = requestIp.getClientIp(req);
   id = parseInt(id);
@@ -37,7 +36,6 @@ export default async function(req, res) {
   var ua = uaparser(req.headers['user-agent']);
   const lang = new Negotiator(req).language();
 
-
   // ua = {
   //   ua: 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/101.0.4951.58 Mobile/15E148 Safari/604.1',
   //   browser: { name: 'Chrome', version: '101.0.4951.58', major: '101' },
@@ -48,10 +46,6 @@ export default async function(req, res) {
   // };
   
   const buffer = Buffer.from(getSvg(detectedIp, geo, ua, lang, id, count));
-
-  console.log('geo', geo);
-  console.log('ua', ua);
-  console.log('language', lang)
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "image/jpg");

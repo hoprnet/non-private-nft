@@ -12,10 +12,5 @@ export default async function(req, res) {
   }
 
   res.statusCode = 200;
-  // res.setHeader("Content-Type", "application/json");
-  // res.setHeader(
-  //   "Cache-Control",
-  //   "public, immutable, no-transform, s-maxage=31536000, max-age=31536000"
-  // );
   return res.json(metadata);
 }

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Non Private NFT</title>
+        <title>HOPR | Non Private NFT</title>
         <meta name="description" content="Non Private NFT by HOPR" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -25,7 +25,7 @@ export default function Home() {
         {/* <SVG src={`/api/nft.svg`}  /> */}
         {/* <SVG src={`/api/nft.svg`} width="353" height="503" /> */}
         
-        {/* <SVG src={`/ethcc-2022-nft-1234.svg`} width="585" height="803" /> */}
+        {/* <div><SVG src={`/ethcc-2022-nft-demo.svg`} width="585" height="803" /></div> */}
         <div>
           <img src="/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
         </div>
