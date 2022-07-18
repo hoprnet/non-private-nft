@@ -263,6 +263,7 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
             }
             .count {
                 font-family: "Source Code Pro";
+                font-weight: bold;
                 font-size: 36px; 
                 fill: black 
             }
@@ -319,9 +320,9 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
         </g>
 
         <g>
-            <text x="40" y="59" class="count" font-weight="600" >id:${stringifyId(id)}</text>
+            <text x="40" y="59" class="count" >id:${stringifyId(id)}</text>
             <polygon points="1285,2235 1335,2185 1580,2185 1580,2235" style="fill: rgb(255, 255, 160)"></polygon>
-            <text x="1330" y="2222" class="count" font-weight="600" >visits:${stringifyCounter(count)}</text>
+            <text x="1330" y="2222" class="count" >visits:${stringifyCounter(count)}</text>
         </g>
        
         </svg>`;
