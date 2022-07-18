@@ -261,6 +261,14 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
               /*  fill: rgb(153,153,96); */
               fill: rgb(255, 255, 160);
             }
+            @font-face {
+                font-family: "SourceCodePro-SemiBold";
+                src: './fonts/SourceCodePro-SemiBold.ttf'';
+            }
+            @font-face {
+                font-family: "Source Code Pro";
+                src: './fonts/SourceCodePro-SemiBold.ttf'';
+            }
             .count {
                 font-family: "SourceCodePro-SemiBold";
                 font-size: 36px; 
