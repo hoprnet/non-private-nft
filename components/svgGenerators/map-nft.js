@@ -228,28 +228,22 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
     const svg = `<svg width="1601" height="2264" viewBox="0 0 1601 2264" fill="none" xmlns="http://www.w3.org/2000/svg">
         <style>
             .nft-title { 
-                font-family: "Segoe UI";
-                font-family: "Source Code Pro";
-                font-weight: bold;
+                font-family: "Source Code Pro Bold";
                 font-size: 58px; 
                 fill: rgb(33,38,44);
             }
             .title { 
-                font-family: "Segoe UI";
-                font-family: "Source Code Pro";
-                font-weight: bold;
+                font-family: "Source Code Pro Bold";
                 font-size: 58px; 
                 fill: black 
             }
             .ip { 
-                font-family: "Segoe UI";
                 font-family: "Source Code Pro";
                 font-weight: 400;
                 font-size: 75px; 
                 fill: black 
             }
             .date { 
-                font-family: "Segoe UI";
                 font-family: "Source Code Pro";
                 font-weight: 400;
                 font-size: 50px; 
@@ -268,7 +262,7 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
               fill: rgb(255, 255, 160);
             }
             .count {
-                font-family: "Source Code Pro";
+                font-family: "Source Code Pro SemiBold";
                 font-weight: bolder;
                 font-size: 36px; 
                 fill: black 
