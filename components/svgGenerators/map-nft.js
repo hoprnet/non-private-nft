@@ -262,7 +262,7 @@ export default function svgGenerator(requesterIp, geo, ua, lang, id, count){
               fill: rgb(255, 255, 160);
             }
             .count {
-                font-family: "Source Code Pro SemiBold";
+                font-family: "SourceCodePro-SemiBold";
                 font-weight: bolder;
                 font-size: 36px; 
                 fill: black 
