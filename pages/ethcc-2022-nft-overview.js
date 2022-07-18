@@ -16,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h2 className={styles.h2}>Non-Private NFT Minter</h2>
+      <h2 className={styles.h2}>NFT might be watching you!</h2>
       <p className={styles.p}>
       The HOPR Non-Private NFT! This NFT tool will show you how easy it is to expose your IP address and maybe even your whole identity with many of today`s crypto services.
       </p>
