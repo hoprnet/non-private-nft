@@ -27,7 +27,7 @@ export default function Home() {
         
         {/* <div><SVG src={`/ethcc-2022-nft-demo.svg`} width="585" height="803" /></div> */}
         <div>
-          <img src="/ethcc-2022-nft-demo.jpg" alt="Non Private NFT by HOPR - EthCC 5 2022 Paris" />
+          <img src="/demo-nft.jpg" alt="Non Private NFT by HOPR - demonstration" />
         </div>
       </main>
     </div>

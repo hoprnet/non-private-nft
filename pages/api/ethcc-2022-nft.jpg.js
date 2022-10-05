@@ -1,5 +1,5 @@
 import path from 'path'
-import getSvg from "../../components/svgGenerators/map-nft";
+import getSvg from "../../components/svgGenerators/map-nft-ethcc22";
 import uaparser from 'ua-parser-js';
 import Negotiator from 'negotiator';
 import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";

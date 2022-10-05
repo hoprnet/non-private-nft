@@ -1,18 +1,25 @@
-import geoip from 'geoip-lite';
-import requestIp from 'request-ip'
+import path from 'path'
+import getSvg from "../../components/svgGenerators/map-nft-demo";
 import uaparser from 'ua-parser-js';
-import getSvg from "../../components/svgGenerators/map-nft-ethcc22"
 import Negotiator from 'negotiator';
 import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";
 
+path.resolve(process.cwd(), 'fonts', 'fonts.conf');
+path.resolve(process.cwd(), 'fonts', 'SourceCodePro-Regular.ttf');
+
+import geoip from 'geoip-lite';
+import requestIp from 'request-ip'
+const sharp = require('sharp');
+
 export default async function(req, res) {
+  let start = Date.now();
   var id = req.query.id;
   if (req.query.id === 'demo'){
     id = Number.MAX_SAFE_INTEGER;
   } else if(!/^\d+$/.test(id)) {
     return res.status(404).end();
   }
-  const start = Date.now();
+
   var detectedIp = requestIp.getClientIp(req);
   id = parseInt(id);
 
@@ -20,17 +27,13 @@ export default async function(req, res) {
     detectedIp = '79.184.237.6';
   }
 
-  // detectedIp = '146.112.128.150'; // Paris
-  // detectedIp = '161.116.109.141'; // Barcelona
-  // detectedIp = '161.116.109.141'; // Barcelona
-  // detectedIp = '78.184.238.42'; // Istanbul
-  // detectedIp = '103.107.198.211'; // Singapore
-  // detectedIp = '51.154.129.107'; // 
-  //detectedIp = '2a01:110f:4407:a200:5c9e:9146:a935:a05d'; // Warsaw
+  //  detectedIp = '78.184.238.42';
+  // detectedIp = '78.184.238.42';
+  //  detectedIp = '2a01:110f:4407:a200:5c9e:9146:a935:a05d';
   const count = await insertIpToEthCCParis2022AndGetCount(id, detectedIp);
 
-  var ua = uaparser(req.headers['user-agent']);
   const geo = geoip.lookup(detectedIp);
+  var ua = uaparser(req.headers['user-agent']);
   const lang = new Negotiator(req).language();
 
   // ua = {
@@ -41,13 +44,20 @@ export default async function(req, res) {
   //   device: { vendor: 'Apple', model: 'iPhone', type: 'mobile' },
   //   cpu: { architecture: undefined }
   // };
+  
+  const buffer = Buffer.from(getSvg(detectedIp, geo, ua, lang, id, count));
 
   res.statusCode = 200;
-  res.setHeader("Content-Type", "image/svg+xml");
-  res.setHeader(
-    "Cache-Control",
-    "public, immutable, no-transform, s-maxage=31536000, max-age=31536000"
-  );
+  res.setHeader("Content-Type", "image/jpg");
+  const jpeg = {
+    mozjpeg: false, //true: 1400ms false: 536.8ms
+    quality: 80, //90: 827.6ms 70: 600ms 50: 521ms // 100:445.6 80:406.4
+    optimiseCoding: false, //true: 536.8ms false: 411ms
+  }
+  const output = await sharp(buffer).resize({ width: 1000 }).jpeg(jpeg).toBuffer();
+  
+
   console.log(Date.now()-start);
-  return res.end(getSvg(detectedIp, geo, ua, lang, id, count));
+  return res.end(output);
+
 }

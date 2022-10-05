@@ -1,7 +1,7 @@
 import geoip from 'geoip-lite';
 import requestIp from 'request-ip'
 import uaparser from 'ua-parser-js';
-import getSvg from "../../components/svgGenerators/map-nft-ethcc22"
+import getSvg from "../../components/svgGenerators/map-nft-demo"
 import Negotiator from 'negotiator';
 import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";
 
