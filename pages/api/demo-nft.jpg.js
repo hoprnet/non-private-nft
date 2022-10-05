@@ -2,7 +2,7 @@ import path from 'path'
 import getSvg from "../../components/svgGenerators/map-nft-demo";
 import uaparser from 'ua-parser-js';
 import Negotiator from 'negotiator';
-import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";
+import { insertIpToDemoAndGetCount } from "../../components/mysql";
 
 path.resolve(process.cwd(), 'fonts', 'fonts.conf');
 path.resolve(process.cwd(), 'fonts', 'SourceCodePro-Regular.ttf');
@@ -30,7 +30,7 @@ export default async function(req, res) {
   //  detectedIp = '78.184.238.42';
   // detectedIp = '78.184.238.42';
   //  detectedIp = '2a01:110f:4407:a200:5c9e:9146:a935:a05d';
-  const count = await insertIpToEthCCParis2022AndGetCount(id, detectedIp);
+  const count = await insertIpToDemoAndGetCount(id, detectedIp);
 
   const geo = geoip.lookup(detectedIp);
   var ua = uaparser(req.headers['user-agent']);

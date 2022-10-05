@@ -3,7 +3,7 @@ import requestIp from 'request-ip'
 import uaparser from 'ua-parser-js';
 import getSvg from "../../components/svgGenerators/map-nft-demo"
 import Negotiator from 'negotiator';
-import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";
+import { insertIpToDemoAndGetCount } from "../../components/mysql";
 
 export default async function(req, res) {
   var id = req.query.id;
@@ -27,7 +27,7 @@ export default async function(req, res) {
   // detectedIp = '103.107.198.211'; // Singapore
   // detectedIp = '51.154.129.107'; // 
   //detectedIp = '2a01:110f:4407:a200:5c9e:9146:a935:a05d'; // Warsaw
-  const count = await insertIpToEthCCParis2022AndGetCount(id, detectedIp);
+  const count = await insertIpToDemoAndGetCount(id, detectedIp);
 
   var ua = uaparser(req.headers['user-agent']);
   const geo = geoip.lookup(detectedIp);

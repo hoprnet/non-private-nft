@@ -87,3 +87,16 @@ export async function insertIpToEthCCParis2022AndGetCount (nftId, ip) {
   return count;
 }
 
+export async function insertIpToDemoAndGetCount (nftId, ip) {
+  console.log('MySQL: insertIpToDemoAndGetCount');
+  let insert = escape`
+    INSERT INTO demo_nft (nftId, ip) VALUES (${nftId},${ip})
+  `
+  let getCount = escape`
+    SELECT COUNT(nftId) as count FROM demo_nft WHERE nftId = ${nftId};
+  `
+  let query = await queryDBTransaction(insert, getCount);
+  let count = query[1][0].count;
+  return count;
+}
+
