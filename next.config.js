@@ -37,27 +37,27 @@ module.exports = {
       // },
     ]
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.plugins.push(
-        new CopyWebpackPlugin({
-          patterns: [
-            {
-              from: "public/modules/geoip-lite-2024-07-19/data/geoip-country.dat",
-              to: "data/geoip-country.dat",
-            },
-            {
-              from: "public/modules/geoip-lite-2024-07-19/data/geoip-country6.dat",
-              to: "data/geoip-country6.dat",
-            },
-            {
-              from: "public/modules/geoip-lite-2024-07-19/data/geoip-city-names.dat",
-              to: "data/geoip-city-names.dat",
-            },
-          ],
-        }),
-      );
-    }
-    return config;
-  },
+  // webpack: (config, { isServer }) => {
+  //   if (isServer) {
+  //     config.plugins.push(
+  //       new CopyWebpackPlugin({
+  //         patterns: [
+  //           {
+  //             from: "public/modules/geoip-lite-2024-07-19/data/geoip-country.dat",
+  //             to: "data/geoip-country.dat",
+  //           },
+  //           {
+  //             from: "public/modules/geoip-lite-2024-07-19/data/geoip-country6.dat",
+  //             to: "data/geoip-country6.dat",
+  //           },
+  //           {
+  //             from: "public/modules/geoip-lite-2024-07-19/data/geoip-city-names.dat",
+  //             to: "data/geoip-city-names.dat",
+  //           },
+  //         ],
+  //       }),
+  //     );
+  //   }
+  //   return config;
+  // },
 }
