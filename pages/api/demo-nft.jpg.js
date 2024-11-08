@@ -7,8 +7,7 @@ import { insertIpToDemoAndGetCount } from "../../components/mysql";
 path.resolve(process.cwd(), 'fonts', 'fonts.conf');
 path.resolve(process.cwd(), 'fonts', 'SourceCodePro-Regular.ttf');
 
-//import geoip from 'geoip-lite';
-import geoip from '../../public/modules/geoip-lite-2024-07-19/lib/geoip.js'
+import geoip from 'geoip-lite';
 import requestIp from 'request-ip'
 const sharp = require('sharp');
 
