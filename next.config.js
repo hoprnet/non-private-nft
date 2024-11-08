@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   async rewrites() {
     return [
@@ -35,4 +37,31 @@ module.exports = {
       // },
     ]
   },
+  // reactStrictMode: true,
+  // experimental: {
+  //   serverComponentsExternalPackages: ["geoip-lite"],
+  // },
+  // webpack: (config, { isServer }) => {
+  //   if (isServer) {
+  //     config.plugins.push(
+  //       new CopyWebpackPlugin({
+  //         patterns: [
+  //           {
+  //             from: "node_modules/geoip-lite/data/geoip-country.dat",
+  //             to: "data/geoip-country.dat",
+  //           },
+  //           {
+  //             from: "node_modules/geoip-lite/data/geoip-country6.dat",
+  //             to: "data/geoip-country6.dat",
+  //           },
+  //           {
+  //             from: "node_modules/geoip-lite/data/geoip-city-names.dat",
+  //             to: "data/geoip-city-names.dat",
+  //           },
+  //         ],
+  //       }),
+  //     );
+  //   }
+  //   return config;
+  // },
 }

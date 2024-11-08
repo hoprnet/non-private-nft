@@ -44,7 +44,7 @@ export default async function(req, res) {
   //   device: { vendor: 'Apple', model: 'iPhone', type: 'mobile' },
   //   cpu: { architecture: undefined }
   // };
-  
+
   const buffer = Buffer.from(getSvg(detectedIp, geo, ua, lang, id, count));
 
   res.statusCode = 200;
@@ -55,7 +55,7 @@ export default async function(req, res) {
     optimiseCoding: false, //true: 536.8ms false: 411ms
   }
   const output = await sharp(buffer).resize({ width: 1000 }).jpeg(jpeg).toBuffer();
-  
+
 
   console.log(Date.now()-start);
   return res.end(output);

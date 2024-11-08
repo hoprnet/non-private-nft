@@ -25,7 +25,7 @@ export default async function(req, res) {
   // detectedIp = '161.116.109.141'; // Barcelona
   // detectedIp = '78.184.238.42'; // Istanbul
   // detectedIp = '103.107.198.211'; // Singapore
-  // detectedIp = '51.154.129.107'; // 
+  // detectedIp = '51.154.129.107'; //
   //detectedIp = '2a01:110f:4407:a200:5c9e:9146:a935:a05d'; // Warsaw
   const count = await insertIpToDemoAndGetCount(id, detectedIp);
 

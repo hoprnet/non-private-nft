@@ -7,7 +7,7 @@ export default async function(req, res) {
 
   var detectedIp = requestIp.getClientIp(req)
   const geo = geoip.lookup(detectedIp);
-  var country = geo?.country.toLowerCase(); 
+  var country = geo?.country.toLowerCase();
   const topIPs = await getTop10Ips();
 
 
