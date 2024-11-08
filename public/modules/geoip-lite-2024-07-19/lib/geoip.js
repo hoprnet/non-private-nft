@@ -13,7 +13,7 @@ var watcherName = 'dataWatcher';
 var geodatadir = path.resolve(
 	__dirname,
 	// MOD MJ
-	global.geodatadir || process.env.GEODATADIR || '../../data/'
+	global.geodatadir || process.env.GEODATADIR || '../data/'
 );
 
 var dataFiles = {
