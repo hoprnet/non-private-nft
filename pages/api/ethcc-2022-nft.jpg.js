@@ -7,7 +7,8 @@ import { insertIpToEthCCParis2022AndGetCount } from "../../components/mysql";
 path.resolve(process.cwd(), 'fonts', 'fonts.conf');
 path.resolve(process.cwd(), 'fonts', 'SourceCodePro-Regular.ttf');
 
-import geoip from 'geoip-lite';
+//import geoip from 'geoip-lite';
+import geoip from '../../modules/geoip-lite-2024-07-19/lib/geoip.js'
 import requestIp from 'request-ip'
 const sharp = require('sharp');
 
@@ -44,7 +45,7 @@ export default async function(req, res) {
   //   device: { vendor: 'Apple', model: 'iPhone', type: 'mobile' },
   //   cpu: { architecture: undefined }
   // };
-  
+
   const buffer = Buffer.from(getSvg(detectedIp, geo, ua, lang, id, count));
 
   res.statusCode = 200;
@@ -55,7 +56,7 @@ export default async function(req, res) {
     optimiseCoding: false, //true: 536.8ms false: 411ms
   }
   const output = await sharp(buffer).resize({ width: 1000 }).jpeg(jpeg).toBuffer();
-  
+
 
   console.log(Date.now()-start);
   return res.end(output);
