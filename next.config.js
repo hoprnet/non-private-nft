@@ -43,15 +43,15 @@ module.exports = {
         new CopyWebpackPlugin({
           patterns: [
             {
-              from: "modules/geoip-lite-2024-07-19/data/geoip-country.dat",
+              from: "public/modules/geoip-lite-2024-07-19/data/geoip-country.dat",
               to: "data/geoip-country.dat",
             },
             {
-              from: "modules/geoip-lite-2024-07-19/data/geoip-country6.dat",
+              from: "public/modules/geoip-lite-2024-07-19/data/geoip-country6.dat",
               to: "data/geoip-country6.dat",
             },
             {
-              from: "modules/geoip-lite-2024-07-19/data/geoip-city-names.dat",
+              from: "public/modules/geoip-lite-2024-07-19/data/geoip-city-names.dat",
               to: "data/geoip-city-names.dat",
             },
           ],
