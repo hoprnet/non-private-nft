@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   async rewrites() {
     return [
@@ -34,5 +36,28 @@ module.exports = {
       //   destination: '/api/nft.jpg',
       // },
     ]
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.plugins.push(
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: "modules/geoip-lite-2024-07-19/data/geoip-country.dat",
+              to: "data/geoip-country.dat",
+            },
+            {
+              from: "modules/geoip-lite-2024-07-19/data/geoip-country6.dat",
+              to: "data/geoip-country6.dat",
+            },
+            {
+              from: "modules/geoip-lite-2024-07-19/data/geoip-city-names.dat",
+              to: "data/geoip-city-names.dat",
+            },
+          ],
+        }),
+      );
+    }
+    return config;
   },
 }

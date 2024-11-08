@@ -12,7 +12,8 @@ var watcherName = 'dataWatcher';
 
 var geodatadir = path.resolve(
 	__dirname,
-	global.geodatadir || process.env.GEODATADIR || '../data/'
+	// MOD MJ
+	global.geodatadir || process.env.GEODATADIR || '../../data/'
 );
 
 var dataFiles = {
@@ -288,7 +289,7 @@ function preload(callback) {
 								});
 							}
 						});
-						
+
 					} else {
 						cb();
 					}
@@ -296,7 +297,7 @@ function preload(callback) {
 			},
 			function () {
 				asyncCache.mainBuffer = Buffer.alloc(datSize);
-				
+
 				async.series([
 					function (cb2) {
 						fs.read(datFile, asyncCache.mainBuffer, 0, datSize, 0, cb2);
@@ -403,7 +404,7 @@ function preload6(callback) {
 			},
 			function () {
 				asyncCache6.mainBuffer = Buffer.alloc(datSize);
-				
+
 				async.series([
 					function (cb2) {
 						fs.read(datFile, asyncCache6.mainBuffer, 0, datSize, 0, cb2);
@@ -485,7 +486,7 @@ module.exports = {
 		return n;
 	},
 
-	// Start watching for data updates. The watcher waits one minute for file transfer to 
+	// Start watching for data updates. The watcher waits one minute for file transfer to
 	// completete before triggering the callback.
 	startWatchingDataUpdate: function (callback) {
 		fsWatcher.makeFsWatchFilter(watcherName, geodatadir, 60*1000, function () {
@@ -505,19 +506,19 @@ module.exports = {
 	stopWatchingDataUpdate: function () {
 		fsWatcher.stopWatching(watcherName);
 	},
-    
+
 	//clear data
 	clear: function () {
 		cache4 = JSON.parse(JSON.stringify(conf4));
 		cache6 = JSON.parse(JSON.stringify(conf6));
 	},
-	
+
 	// Reload data synchronously
 	reloadDataSync: function () {
 		preload();
 		preload6();
 	},
-	
+
 	// Reload data asynchronously
 	reloadData: function (callback) {
 		//Reload data
