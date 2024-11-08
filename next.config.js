@@ -37,6 +37,10 @@ module.exports = {
       // },
     ]
   },
+  reactStrictMode: true,
+  experimental: {
+    serverComponentsExternalPackages: ["geoip-lite"],
+  },
   // webpack: (config, { isServer }) => {
   //   if (isServer) {
   //     config.plugins.push(
