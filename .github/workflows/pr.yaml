@@ -13,8 +13,8 @@ concurrency:
 
 jobs:
   # Keeps the `Merge gate` check name present in every repository so the
-  # ruleset can require it uniformly (hoprnet/hopr-devops#372). It grows
-  # a `needs:` list and an alls-green step when the repository gets real PR jobs.
+  # ruleset can require it uniformly (hoprnet/hopr-devops#372). Add a
+  # `needs:` list and an alls-green step when the repository gets real PR jobs.
   merge-gate:
     name: Merge gate
     if: always()
